@@ -1,0 +1,67 @@
+﻿<Page x:Class="AgencyHouse.Pages.PageAdminCatalog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgencyHouse.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAdminCatalog">
+
+    <Page.Resources>
+        <sys:String x:Key="defaulImage">
+            pack://application:,,,/Pages/default.png
+        </sys:String>
+    </Page.Resources>
+    <Grid>
+        <ScrollViewer >
+            <StackPanel Orientation="Vertical">
+                <Label HorizontalAlignment="Left" Margin="30 20 0 -10" FontSize="20">Каталог</Label>
+                <Label HorizontalAlignment="Center" Margin="0 0 0 -20">Поиск</Label>
+                <TextBox TextChanged="Filter_TextChanged" x:Name="NameFilter" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="620" Height="25" Margin="25"/>
+                <ListBox HorizontalContentAlignment="Center" x:Name="ProductsAdminView" Width="700" Height="Auto" BorderBrush="Transparent" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem BorderBrush="Black" Background="White" Width="650" Name="listBB">
+                                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                    <Image Source="{Binding Image,  TargetNullValue={StaticResource defaulImage}}"  Width="200" Height="200" Margin="10 -25"/>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" >
+                                        <StackPanel Orientation="Horizontal" Margin="20 0 0 10">
+                                            <StackPanel Orientation="Vertical">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Название: "/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Описание: "/>
+                                                    <TextBlock Width="350" TextWrapping="Wrap" Text="{Binding Description}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Город: "/>
+                                                    <TextBlock Text="{Binding City}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Категория: "/>
+                                                    <TextBlock Text="{Binding Category}"/>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Цена за сутки: "/>
+                                                    <TextBlock Text="{Binding CostDay}"/>
+                                                    <TextBlock Text=" руб."/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Забронировать" Click="BtnBooking" Style="{StaticResource mainBtn}"/>
+                                            <Button x:Name="btnEdit" Click="BtnEdit" Content="Редактировать" Style="{StaticResource mainBtn}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="AgencyHouse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgencyHouse"
+        mc:Ignorable="d"
+        Title="Агентство недвижимости" x:Name="MainWin" MinHeight="700" MinWidth="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="670*"/>
+            <ColumnDefinition Width="240*" MaxWidth="300"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Visibility="Hidden" x:Name="menu" Background="#30d5c8" Grid.Column="1" >
+            <StackPanel VerticalAlignment="Bottom" >
+                <Button Name="usersBtn" Click="btnUsers" Content="Учетные записи" Style="{StaticResource mainBtn}"/>                
+                <Button Name="addProductBtn" Click="BtnProductAdd" Content="Добавление товара" Style="{StaticResource mainBtn}"/>
+                <Button Content="Товары" Style="{StaticResource mainBtn}" Click="BtnProduct"/>
+                <Button Click="BtnExit" Margin="0 5 0 50" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Content="Выход"
+                    Style="{DynamicResource mainBtn}"/>
+            </StackPanel>
+        </DockPanel>
+        <Frame x:Name="FrmMain"  NavigationUIVisibility="Hidden" Grid.Column="0"/>
+        <Image Visibility="Hidden" x:Name="logo" Grid.Column="1" Source="D:\C#\Курсовая\AgencyHouse\AgencyHouse\AppData\Images\logo.png"  Width="200" Height="200" Margin="25,25,25,0" VerticalAlignment="Top" />
+    </Grid>
+</Window>

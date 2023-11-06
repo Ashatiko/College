@@ -1,0 +1,45 @@
+﻿<Page x:Class="AgencyHouse.Pages.PageRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgencyHouse.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageRegistration">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="230 0 0 0">
+            <TextBlock Text="Регистрация" HorizontalAlignment="Center" FontSize="25" Margin="0 0 0 15" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Name" HorizontalAlignment="Center"/>
+                        <TextBox Style="{StaticResource mainTbox}" x:Name="name" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Surname" HorizontalAlignment="Center"/>
+                        <TextBox Style="{StaticResource mainTbox}" x:Name="surname" />
+                    </StackPanel>                    
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Login" HorizontalAlignment="Center"/>
+                        <TextBox Style="{StaticResource mainTbox}" x:Name="login"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Pasword" HorizontalAlignment="Center"/>
+                        <TextBox TextChanged="password_TextChanged" Style="{StaticResource mainTbox}" x:Name="password"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Password Repeat" HorizontalAlignment="Center"/>
+                        <PasswordBox Style="{StaticResource mainPassbox}" x:Name="pasrepeate" PasswordChanged="pasrepeate_PasswordChanged"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <Button Style="{StaticResource mainBtn}" Name="btnreg" Content="Зарегистрироваться" Click="BtnReg_Click"/>
+                    <Button Style="{StaticResource mainBtn}" Content="Войти как гость" Click="BtnEnterGuest" />
+                    <Button Style="{StaticResource mainBtn}" Content="Назад" Click="BtnBack" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
